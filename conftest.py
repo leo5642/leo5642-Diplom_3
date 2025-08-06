@@ -20,7 +20,7 @@ from pages.order_page import OrderPage
 
 def pytest_generate_tests(metafunc):
     if "browser" in metafunc.fixturenames:
-        metafunc.parametrize("browser", ["chrome"], indirect=True)
+        metafunc.parametrize("browser", ["chrome", "firefox"], indirect=True)
 
 @pytest.fixture(scope="function")
 def browser(request):
