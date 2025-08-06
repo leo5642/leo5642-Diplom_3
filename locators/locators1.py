@@ -9,8 +9,9 @@ class LocatorsCollector:
     button_close_text_ingridient = (By.CLASS_NAME, "Modal_modal__close_modified__3V5XS ")
     konstruktor_bun = (By.CLASS_NAME, "Modal_modal__close_modified__3V5XS ")
     ingridient_number = (By.CLASS_NAME, 'counter_default__28sqi')
+
     
 
-    orders_all_time = (By.XPATH, "//*[@id='root']/div/main/div/div/div/div[2]/p[2]")
-    orders_today = (By.XPATH, "//*[@id='root']/div/main/div/div/div/div[3]/p[2]")
+    orders_all_time = (By.CSS_SELECTOR, "p.OrderFeed_number__2MbrQ")
+    orders_today = (By.CSS_SELECTOR, "p.OrderFeed_number__2MbrQ:nth-of-type(2)")
     number_order_look = (By.CLASS_NAME, "text_type_digits-default")

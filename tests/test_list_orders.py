@@ -12,41 +12,41 @@ from pages.page_list_orders import PageOrder
 import allure
 
 class Testbookscollector2:
-    @allure.step("Проверка увелечения счетчика общего заказов при добавлении заказа")
+    @allure.title("Проверка увелечения счетчика общего заказов при добавлении заказа")
     def test_sum_order_plus_one(self, browser, request):
         order_bage = PageOrder(browser)
         self.driver = browser
-        order_bage.get_open_url(UrlCollector.url_list_order, LocatorsCollector.orders_all_time)
-        orders_all = order_bage.get_text(LocatorsCollector.orders_all_time)
+        order_bage.get_open_url_orders_list()
+        orders_all = order_bage.get_text_order_all()
        
         order = request.getfixturevalue("number_order")
         assert len(str(order)) == 6
-        orders_all1 = order_bage.get_text(LocatorsCollector.orders_all_time)
+        orders_all1 = order_bage.get_text_order_all()
         
         assert int(orders_all) + 1 == int(orders_all1)
 
-    @allure.step("Проверка увелечения счетчика сегодня заказов при добавлении заказа")
+    @allure.title("Проверка увелечения счетчика сегодня заказов при добавлении заказа")
     def test_sum_today_order_plus_one(self, browser, request):
         order_bage = PageOrder(browser)
         self.driver = browser
-        order_bage.get_open_url(UrlCollector.url_list_order, LocatorsCollector.orders_today)
-        orders_all = order_bage.get_text(LocatorsCollector.orders_today)
+        order_bage.get_open_url_orders_list()
+        orders_all = order_bage.get_text_order_today()
        
         order = request.getfixturevalue("number_order")
         assert len(str(order)) == 6
-        orders_all1 = order_bage.get_text(LocatorsCollector.orders_today)
+        orders_all1 = order_bage.get_text_order_today()
         
         assert int(orders_all) + 1 == int(orders_all1)
 
-    @allure.step("Проверка появления номера заказа в списке ленты заказов")
+    @allure.title("Проверка появления номера заказа в списке ленты заказов")
     def test_number_order_in_list_orters(self, browser, request):
         order_bage = PageOrder(browser)
         self.driver = browser
-        order_bage.get_open_url(UrlCollector.url_list_order, LocatorsCollector.orders_today)
+        order_bage.get_open_url_orders_list()
        
         order = request.getfixturevalue("number_order")
         assert len(str(order)) == 6
-        orders_all = order_bage.get_text(LocatorsCollector.number_order_look)
+        orders_all = order_bage.get_text_order_list()
         
         assert '#0' + str(order) == orders_all
 

@@ -11,7 +11,7 @@ from locators.url import UrlCollector
 import allure
 
 class Testbookscollector1:
-    @allure.step("Проверка перехода по клику на конструктор")
+    @allure.title("Проверка перехода по клику на конструктор")
     def test_use_burron(self, browser):
         home_page = HomePage(browser)
 
@@ -19,7 +19,7 @@ class Testbookscollector1:
         current_url = home_page.get_current_url()
         assert current_url == UrlCollector.url_home
     
-    @allure.step("Проверка перехода по клику на раздел Лента заказов")
+    @allure.title("Проверка перехода по клику на раздел Лента заказов")
     def test_use_list_order(self, browser):
         home_page = HomePage(browser)
 
@@ -27,7 +27,7 @@ class Testbookscollector1:
         current_url = home_page.get_current_url()
         assert current_url == UrlCollector.url_list_order
 
-    @allure.step("Проверка перехода на информацию об ингридиенте")
+    @allure.title("Проверка перехода на информацию об ингридиенте")
     def test_use_burron1(self, browser):
         home_page = HomePage(browser)
 
@@ -35,7 +35,8 @@ class Testbookscollector1:
         text = home_page.get_text_activ()
         
         assert text == 'Детали ингредиента'
-    @allure.step("Проверка закрытия формы информации о заказе через крестик")
+        
+    @allure.title("Проверка закрытия формы информации о заказе через крестик")
     def test_use_burron1_click_close(self, browser):
         home_page = HomePage(browser)
 
@@ -44,7 +45,7 @@ class Testbookscollector1:
         current_url = home_page.get_current_url()
         assert UrlCollector.url_home in current_url
 
-    @allure.step("Проверка увечелечения счетчика ингридиентов при добавлении ингридиента в заказ")
+    @allure.title("Проверка увечелечения счетчика ингридиентов при добавлении ингридиента в заказ")
     def test_numbe_2_in_bun_use_bun(self, browser):
         home_page = HomePage(browser)
         self.driver = browser

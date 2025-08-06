@@ -17,7 +17,7 @@ class BasePage:
     @allure.step("Ожидание появление элемента")
     def find_element(self, locator):
         return self.wait.until(EC.presence_of_element_located(locator))
-    
+        
     @allure.step('Находит видимый элемент')
     def find_visible_element(self, locator):
         return self.wait.until(EC.visibility_of_element_located(locator))
@@ -46,4 +46,12 @@ class BasePage:
     def get_use_url(self, url):
         self.driver.get(url)
 
-
+    @allure.step('Установка для зупуска браузера Хром')
+    def get_driver_chrome(self):
+        return webdriver.Chrome()
+    
+    @allure.step('Установка для запуска браузера  горящаялиса')
+    def get_driver_firefox(self):
+        return webdriver.Firefox()
+    
+    
